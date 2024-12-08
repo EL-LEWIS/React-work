@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Instalaçao:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Iniciando com a instalaçao do (npx create-react-app task-manager) e entrando na pasta task-manager, instalando npm install prop-types 
 
-## Available Scripts
+# Configuraçoes:
 
-In the project directory, you can run:
+No arquivo app.js fazendo o cabesalho e uma seçao para exibir as tarefas
 
-### `npm start`
+PROGRAMA:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+import React from 'react';
+import Header from './components/Header';
+import TaskContainer from './components/TaskContainer';
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function App() {
+  return (
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <TaskContainer />
+      </main>
+    </div>
+  );
+}
 
-### `npm test`
+export default App;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Dentro do cabesalho inserir um titulo usando o header e criando um arquivo do mesmo
 
-### `npm run build`
+PROGRAMA:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function Header() {
+  return <h1>Gerenciador de Tarefas</h1>;
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default Header;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dentro da seçao usando o  TaskContainer para exibir as tarefas
 
-### `npm run eject`
+PROGRAMA:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const TaskContainer = () => {
+  return (
+    <>
+      <div>Tarefas</div>
+    </>
+  );
+};
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Atualizando o REACT
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+No arquivo TaskContainer.js, use React.Fragment para envolver os itens sem adicionar um nó extra no
+ DOM e adcionando uma lista de tarefas ficticias no componente
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+PROGRAMA:
+function TaskContainer() { 
+return ( 
+<React.Fragment> 
+<div className="task"> 
+<h3>Tarefa 1</h3> 
+<p>Descrição da Tarefa 1</p> 
+</div> 
+<div className="task"> 
+<h3>Tarefa 2</h3> 
+<p>Descrição da Tarefa 2</p> 
+</div> 
+</React.Fragment> 
+  ); 
+} 
 
-## Learn More
+Depois crie um novo arquivo na pasta components chamada Task.js adcionando o conteudo do arquivo da aula e atualizando o Task com o programa recente do arquivo da aula
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+PROGRAMA:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+function TaskContainer() { 
+const tasks = [ 
+    { 
+id: 1, title: 'Tarefa 1', description: 'Descrição da Tarefa 1' }, 
+    { 
+  ]; 
+id: 2, title: 'Tarefa 2', description: 'Descrição da Tarefa 2' }, 
+return ( 
+<div> 
+      {tasks.map((task) => ( 
+<Task key={task.id} title={task.title} description={task.description} /> 
+      ))} 
+</div> 
+  ); 
+} 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Atualizaçao:
+Adcionando um botao para gerar outras tasks mas com alteraçao das mesmas.
+as tasks foram alteradas para darksouls e adcionando informaçoes 
 
-### Analyzing the Bundle Size
+Resultado gerado:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![**alt text**](<Captura de tela 2024-12-08 175917.png>)
