@@ -4,13 +4,9 @@ import TaskContainer from './components/TaskContainer';
 
 function App() {
   return (
-    <div>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <TaskContainer />
-      </main>
+    <div className="App">
+      <Header />
+      <TaskContainer />
     </div>
   );
 }
